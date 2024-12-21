@@ -1,3 +1,4 @@
+
 :root {
     --color-primary: #FFA500;
     --color-dark: #333333;
@@ -16,39 +17,24 @@ body {
     line-height: 1.6;
     padding-top: 60px; /* Espacio para el menú fijo */
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Menú hamburguesa
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-        navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-        // Scroll suave para los enlaces del menú
-        document.querySelectorAll('.nav-menu a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Cerrar el menú mobile si está abierto
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-
-                // Scroll suave a la sección
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    // Cerrar menú al hacer click en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
         });
     });
 </script>
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
