@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avex - Asistencia Vehicular Express</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#service">Nuestro servicio</a></li>
+                <li><a href="#about">Quiénes somos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Sección 1: Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__left">
+                <img src="logo_avex.png" alt="Avex" class="logo">
+                
+                <h1>Tu Asistencia Vehicular<br>a un click de distancia.</h1>
+                <p>Seleccione que tipo de asistencia necesita</p>
+                
+                <div class="buttons">
+                    <a href="https://api.whatsapp.com/send?phone=5491168294554&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Cambio de Neumáticos</a>
+                    <a href="https://api.whatsapp.com/send?phone=5491168294554&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Carga de Batería</a>
+                    <button class="btn btn--outline">Otros incidentes</button>
+                </div>
+                
+                <p class="price">Precio: $XXX - CABA</p>
+            </div>
+            <div class="hero__right">
+                <div class="car-image">
+                    <div class="hero__right">
+                        <div class="car-image">
+                            <img src="auto_avex.jpg" alt="Auto con asistencia" style="width: 100%; border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Sección de Partners/Seguros -->
+<section class="partners">
+    <div class="container">
+        <div class="partners-grid">
+            <img src="sancor.png" alt="Sancor Seguros" class="partner-logo">
+            <img src="allianz.png" alt="Allianz" class="partner-logo">
+            <img src="/mapfre.png" alt="Mapfre" class="partner-logo">
+            <img src="/lasegunda.png" alt="lasegunda" class="partner-logo">
+            <img src="/rivadavia.png" alt="rivadavia" class="partner-logo">
+        </div>
+    </div>
+    <body>
+    <!-- Sección 2: Pasos -->
+    <section class="service-steps">
+        <div class="container">
+            <h2>Conoce<br>Nuestro Servicio</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="number">01.</span>
+                    <p>Nos escribís por Whatsapp.</p>
+                </div>
+                <div class="step">
+                    <span class="number">02.</span>
+                    <p>Buscamos un rider cerca tuyo.</p>
+                </div>
+                <div class="step">
+                    <span class="number">03.</span>
+                    <p>Te cotizamos.</p>
+                </div>
+                <div class="step">
+                    <span class="number">04.</span>
+                    <p>Llegamos en menos de 30'.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+        <!-- Todo tu contenido actual -->
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const car = document.getElementById('carImage');
+                let lastScrollPosition = window.pageYOffset;
+                
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset;
+                    const scrollDifference = currentScroll - lastScrollPosition;
+                    const moveX = scrollDifference * 0.5;
+                    const currentTransform = car.style.transform || 'translateX(0px)';
+                    const currentX = parseInt(currentTransform.replace(/[^\d-]/g, '')) || 0;
+                    const newX = currentX + moveX;
+                    car.style.transform = `translateX(${newX}px)`;
+                    lastScrollPosition = currentScroll;
+                });
+            });
+        </script>
+</section>
+</html><!-- Agrega esta sección después de service-steps -->
+<section class="about">
+    <div class="container">
+        <h2>
+            <span class="title-line"></span>
+            Quienes<br>
+            Somos
+        </h2>
+        
+        <div class="about-content">
+            <div class="about-left">
+                <p class="intro">Somos tu equipo de confianza para asistencias, especialistas en brindar soluciones rápidas y eficaces para que sigas adelante sin contratiempos.</p>
+                
+                <h3>Nuestros servicios</h3>
+                <p>Envianos un WhatsApp, compartinos tu ubicación y con nuestra flota de Riders llegamos en 30 minutos a donde estés. ¡Más rápido que una grúa!</p>
+                
+                <ul class="services-list">
+                    <li>
+                        <strong>Carga de baterías:</strong> Si tu batería te deja tirado, nuestro equipo está listo para ayudarte con una recarga rápida y segura, para que puedas volver a encender tu motor sin estrés.
+                    </li>
+                    <li>
+                        <strong>Cambio de rueda:</strong> No importa si te quedaste por una rueda pinchada o necesitas ayuda para cambiarla por el auxilio, nuestro servicio está diseñado para resolver para que puedas y que continues tu camino sin perder tiempo.
+                    </li>
+                    <li>
+                        <strong>Asistencia general:</strong> Desde problemas menores hasta situaciones imprevistas, estamos aquí para ofrecerte apoyo en el momento que más lo necesites.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="about-right">
+                <div class="info-box">
+                    <h3>¿Por qué elegirnos?</h3>
+                    <p>Elegir Avex significa elegir un servicio integral, honesto y transparente que se adapta a tus necesidades. Nos dedicamos a ofrecer asistencia rápida y efectiva para problemas comunes de vehículos, asegurándonos de que te sientas acompañado y respaldado en cada paso del trayecto.</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3>¿Necesitas asistencia?</h3>
+                    <p>Si te encontras en una situación en la que necesitas ayuda con tu batería, rueda, o cualquier otro problema vehicular ligero, estamos para vos.</p>
+                    <p>Contactanos y proba un servicio en el que podes confiar.</p>
+                    <p class="highlight">¡Estamos a sólo un WhatsApp de distancia!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="riders">
+        <div class="container">
+            <h2>
+                Conocé<br>
+                nuestros riders
+            </h2>
+            
+            <div class="riders-grid">
+                <!-- Rider 1 -->
+                <div class="rider-card">
+                    <div class="rider-image">
+                        <img src="rider1.png" alt="Andrés">
+                    </div>
+                    <h3>Andrés</h3>
+                    <p>XX años.</p>
+                </div>
+                
+                <!-- Rider 2 -->
+                <div class="rider-card">
+                    <div class="rider-image">
+                        <img src="rider2.jpg" alt="Julio Espinoza">
+                    </div>
+                    <h3>Julio Espinoza</h3>
+                    <p>43 años.</p>
+                </div>
+                
+                <!-- Rider 3 -->
+                <div class="rider-card">
+                    <div class="rider-image">
+                        <img src="rider3.jpg" alt="Enzo T. Gonzáles">
+                    </div>
+                    <h3>Enzo T. Gonzáles</h3>
+                    <p>47 años.</p>
+                </div>
+                
+                <!-- Rider 4 -->
+                <div class="rider-card">
+                    <div class="rider-image">
+                        <img src="rider4.jpg" alt="Claudio Andrés Ruiz">
+                    </div>
+                    <h3>Claudio Andrés Ruiz</h3>
+                    <p>49 años.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section><!-- Agregar al final del body, antes del cierre -->
+<footer class="footer">
+    <div class="container">
+        <img src="avex-logo-2.png" alt="Avex" class="footer-logo">
+    </div>
+</footer>
