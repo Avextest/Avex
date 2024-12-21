@@ -15,6 +15,23 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     padding-top: 60px; /* Espacio para el menú fijo */
+<script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
 }
 
 .container {
@@ -25,7 +42,7 @@ body {
 
 /* Header y Navegación */
 .header {
-    background-color: var(--color-gray);
+    background-color: var(--color-light);
     position: fixed;
     width: 100%;
     top: 0;
@@ -34,28 +51,31 @@ body {
 
 .nav {
     display: flex;
-    justify-content: center;
-    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand .logo {
+    height: 40px;
+    margin: 0;
 }
 
 .nav-menu {
     display: flex;
-    gap: 60px;
+    gap: 2rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-menu a {
     color: var(--color-dark);
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover {
-    color: var(--color-primary);
+    font-size: 1rem;
 }
 
 .nav-toggle {
@@ -205,10 +225,56 @@ h1 {
 }
 
 /* Responsive */
+/* Media Query para mobile */
 @media (max-width: 768px) {
-    .steps {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--color-dark);
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-light);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* Animación del menú hamburguesa */
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
     }
     
     .service-steps h2 {
