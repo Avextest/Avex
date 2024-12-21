@@ -226,32 +226,55 @@ h1 {
 
 /* Responsive */
 @media (max-width: 768px) {
-    /* ... otros estilos mobile ... */
-
     .nav-brand .logo {
-        max-width: 100px; /* Reducimos el tamaño a la mitad */
+        max-width: 100px; /* Logo más pequeño */
         height: auto;
-        margin: 0 auto; /* Para centrarlo */
     }
 
     .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px; /* Reducimos el padding para que no ocupe tanto espacio */
-    }
-
-    .nav-brand {
-        flex: 1;
-        display: flex;
-        justify-content: center; /* Centra el logo */
+        padding: 10px 20px;
+        position: relative;
     }
 
     .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
         position: absolute;
         right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
-}
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--color-dark);
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-light);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
     /* Animación del menú hamburguesa */
     .nav-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
@@ -264,8 +287,14 @@ h1 {
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
-}
+
+    /* Centrar el logo */
+    .nav-brand {
+        flex: 1;
+        display: flex;
+        justify-content: center;
     }
+}
     
     .service-steps h2 {
         font-size: 32px;
