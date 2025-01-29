@@ -54,14 +54,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
-    /* Aumentamos el padding-top y padding-bottom */
+    padding: 20px 0;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.nav-brand {
-    flex-shrink: 0;
 }
 
 .nav-brand .logo {
