@@ -516,15 +516,35 @@ h3 {
 .footer {
     background-color: #1E2329;
     padding: 40px 0;
+    position: relative;
+    /* Agregamos position relative */
+}
+
+.footer .container {
     text-align: center;
+    /* Mantenemos el logo centrado */
 }
 
 .footer-logo {
     width: 200px;
-    /* Ajustamos el tamaño */
     height: auto;
     object-fit: contain;
-    /* Asegura que la imagen mantenga sus proporciones */
+}
+
+.footer-link {
+    position: absolute;
+    left: 100px;
+    /* Aumentamos de 20px a 100px */
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
