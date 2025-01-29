@@ -18,6 +18,21 @@ body {
     /* Espacio para el menú fijo */
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
+body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -50,34 +65,30 @@ body {
     }
 }
 
-.nav-toggle {
-    display: none;
-}
-
+/* Navigation Mobile Styles */
 @media (max-width: 768px) {
     .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
         position: relative;
+        padding: 10px 0;
     }
 
     .nav-brand {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 101;
+    }
+
+    .nav-brand .logo {
+        height: 30px;
+        width: auto;
     }
 
     .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        gap: 6px;
-        margin-left: auto;
+        display: block;
+        position: relative;
+        z-index: 100;
+        transition: all 0.3s ease;
     }
 
     .nav-toggle span {
@@ -85,24 +96,51 @@ body {
         width: 25px;
         height: 2px;
         background-color: var(--color-dark);
-        transition: 0.3s;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -8px);
     }
 
     .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--color-gray);
-        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-light);
         flex-direction: column;
-        gap: 20px;
+        justify-content: center;
+        transition: all 0.3s ease;
+        padding: 20px;
+        z-index: 99;
     }
 
     .nav-menu.active {
-        display: flex;
+        left: 0;
     }
+
+    .nav-menu li a {
+        font-size: 1.5rem;
+        padding: 15px 0;
+        display: block;
+    }
+}
+
+
+.nav-content {
+    margin-left: auto;
 }
 
 .nav {
@@ -117,12 +155,6 @@ body {
 .nav-brand .logo {
     height: 30px;
     width: auto;
-    display: block;
-    margin: auto 0;
-}
-
-.nav-content {
-    margin-left: auto;
 }
 
 .nav-menu {
@@ -131,10 +163,7 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 40px;
-    /* Misma altura que el logo */
     align-items: center;
-    /* Centra los elementos del menú */
 }
 
 .nav-menu a {
@@ -143,10 +172,6 @@ body {
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s ease;
-    display: inline-block;
-    /* Mejor control del elemento */
-    line-height: 1;
-    /* Reset line-height */
 }
 
 .nav-menu a:hover {
