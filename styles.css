@@ -50,6 +50,61 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .nav {
+        justify-content: space-between;
+        /* Distribuye los elementos */
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    .nav-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+    }
+
+    .nav-toggle {
+        display: block;
+        /* Mostramos el botón hamburguesa */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1000;
+        margin-left: auto;
+        /* Lo mueve a la derecha */
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--color-dark);
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+
+    .nav-menu {
+        display: none;
+        /* Ocultamos el menú por defecto */
+    }
+
+    .nav-menu.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-gray);
+        padding: 20px;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
