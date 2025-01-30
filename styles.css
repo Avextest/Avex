@@ -648,11 +648,9 @@ h3 {
 
 
 @media (max-width: 768px) {
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding: 40px 20px;
+   .hero {
+        min-height: auto; /* Cambiamos de 100vh a auto */
+        padding: 40px 20px 20px; /* Reducimos el padding bottom */
         text-align: center;
         background-color: #f5f5f5;
     }
