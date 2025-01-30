@@ -67,27 +67,38 @@ body.menu-open::before {
 /* Navigation Mobile Styles */
 @media (max-width: 768px) {
     .nav {
-        position: relative;
-        padding: 10px 0;
+        padding: 15px 20px;
+        /* Aumentamos el padding vertical */
+        align-items: center;
     }
 
     .nav-brand {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        top: 50%;
+        /* Centramos verticalmente */
+        transform: translate(-50%, -50%);
+        /* Centramos horizontal y verticalmente */
         z-index: 101;
+        display: flex;
+        align-items: center;
     }
 
     .nav-brand .logo {
-        height: 30px;
+        height: 25px;
+        /* Ajustamos tamaño del logo si es necesario */
         width: auto;
+        display: block;
     }
 
     .nav-toggle {
         display: block;
         position: relative;
         z-index: 100;
-        transition: all 0.3s ease;
+        padding: 5px;
+        /* Añadimos padding para área de toque */
+        margin: 0;
+        /* Reseteamos márgenes */
     }
 
     .nav-toggle span {
@@ -148,11 +159,17 @@ body.menu-open::before {
     position: relative;
 }
 
-
+.nav-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
 
 .nav-brand .logo {
     height: 30px;
     width: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu {
@@ -162,6 +179,7 @@ body.menu-open::before {
     margin: 0;
     padding: 0;
     align-items: center;
+    height: 100%;
 }
 
 .nav-menu a {
@@ -170,6 +188,9 @@ body.menu-open::before {
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu a:hover {
