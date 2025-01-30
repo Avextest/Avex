@@ -1,3 +1,4 @@
+
 :root {
     --color-primary: #FFA500;
     --color-dark: #333333;
@@ -70,15 +71,13 @@ body.menu-open::before {
 
 /* Navigation Mobile Styles */
 @media (max-width: 768px) {
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 40px; /* Estaba en 10px 20px */
-        background-color: var(--color-gray);
-        margin: 0;
-        height: 80px; /* Agregamos altura fija para mobile */
-    }
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--color-gray); /* Asegura que el nav tenga el mismo color de fondo */
+    margin: 0; /* Elimina cualquier margen */
 }
 
     .nav-brand {
@@ -94,7 +93,7 @@ body.menu-open::before {
     }
 
     .nav-brand .logo {
-        height: 35px;
+        height: 25px;
         /* Ajustamos tamaño del logo si es necesario */
         width: auto;
         display: block;
