@@ -94,54 +94,74 @@
          <!-- Single JavaScript Section -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menu Toggle Functionality
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            const body = document.body;
+    // Menu Toggle Functionality
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    const menuItems = document.querySelectorAll('.nav-menu li');
 
-            function closeMenu() {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.classList.remove('menu-open');
-            }
+    function closeMenu() {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+        menuItems.forEach((item, index) => {
+            item.style.transitionDelay = '0s';
+            item.style.opacity = '0';
+        });
+    }
 
-            navToggle.addEventListener('click', function() {
-                navToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                body.classList.toggle('menu-open');
+    navToggle.addEventListener('click', function() {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        if (navMenu.classList.contains('active')) {
+            menuItems.forEach((item, index) => {
+                item.style.transitionDelay = `${0.1 * index}s`;
+                item.style.opacity = '1';
             });
+        } else {
+            closeMenu();
+        }
+    });
 
-            // Menu Links Click Handler
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    closeMenu();
-                    
-                    if (link.hash) {
-                        e.preventDefault();
-                        const targetSection = document.querySelector(link.hash);
-                        if (targetSection) {
-                            targetSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }
-                });
-            });
-
-            // Car Image Animation
-            const car = document.getElementById('carImage');
-            if (car) {
-                let lastScrollPosition = window.pageYOffset;
-                window.addEventListener('scroll', () => {
-                    const currentScroll = window.pageYOffset;
-                    const scrollDifference = currentScroll - lastScrollPosition;
-                    const moveX = scrollDifference * 0.5;
-                    const currentTransform = car.style.transform || 'translateX(0px)';
-                    const currentX = parseInt(currentTransform.replace(/[^\d-]/g, '')) || 0;
-                    const newX = currentX + moveX;
-                    car.style.transform = `translateX(${newX}px)`;
-                    lastScrollPosition = currentScroll;
-                });
+    // Menu Links Click Handler
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            closeMenu();
+            
+            if (link.hash) {
+                e.preventDefault();
+                const targetSection = document.querySelector(link.hash);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
+    });
+
+    // Car Image Animation
+    const car = document.getElementById('carImage');
+    if (car) {
+        let lastScrollPosition = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const scrollDifference = currentScroll - lastScrollPosition;
+            const moveX = scrollDifference * 0.5;
+            const currentTransform = car.style.transform || 'translateX(0px)';
+            const currentX = parseInt(currentTransform.replace(/[^\d-]/g, '')) || 0;
+            const newX = currentX + moveX;
+            car.style.transform = `translateX(${newX}px)`;
+            lastScrollPosition = currentScroll;
+        });
+    }
+
+    // Delay inicial para los elementos del menú
+    menuItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    });
+});
     </script>
     </body>
     </section>
