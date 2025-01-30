@@ -70,11 +70,14 @@ body.menu-open::before {
 
 /* Navigation Mobile Styles */
 @media (max-width: 768px) {
-    .nav {
-        padding: 15px 20px;
-        /* Aumentamos el padding vertical */
-        align-items: center;
-    }
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--color-gray); /* Asegura que el nav tenga el mismo color de fondo */
+    margin: 0; /* Elimina cualquier margen */
+}
 
     .nav-brand {
         position: absolute;
