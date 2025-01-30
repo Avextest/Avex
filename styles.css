@@ -30,7 +30,7 @@ body.menu-open::before {
     content: '';
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
@@ -95,24 +95,27 @@ body.menu-open::before {
         display: block;
     }
 
-    .nav-toggle {
-        display: block;
-        position: relative;
-        z-index: 100;
-        padding: 5px;
-        /* Añadimos padding para área de toque */
-        margin: 0;
-        /* Reseteamos márgenes */
-    }
+.nav-toggle {
+    display: block;
+    position: absolute; /* Cambiamos a absolute para posicionarlo */
+    right: 20px; /* Lo movemos a la derecha */
+    top: 50%; /* Lo centramos verticalmente */
+    transform: translateY(-50%); /* Ajuste fino del centrado vertical */
+    z-index: 100;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
-    .nav-toggle span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background-color: var(--color-dark);
-        margin: 5px 0;
-        transition: all 0.3s ease;
-        transform-origin: center;
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-dark);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
     }
 
     .nav-toggle.active span:nth-child(1) {
