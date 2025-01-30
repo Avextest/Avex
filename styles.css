@@ -523,6 +523,7 @@ h3 {
 @media (max-width: 768px) {
     .hero {
         margin-top: 120px; /* Valor ajustable */
+        background-color: --color-gray: #F5F5F5;
     }
     
     .hero .container {
