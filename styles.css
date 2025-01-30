@@ -47,7 +47,6 @@ body.menu-open::before {
     top: 0;
     z-index: 1000;
     padding: 10px 0;
-    /* Agregamos padding al header también */
 }
 
 .partners h2 {
@@ -139,18 +138,17 @@ body.menu-open::before {
 }
 
 
-.nav-content {
-    margin-left: auto;
-}
-
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
+
+
 
 .nav-brand .logo {
     height: 30px;
@@ -180,6 +178,11 @@ body.menu-open::before {
 
 .nav-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
 }
 
 /* Hero Section */
@@ -527,30 +530,6 @@ h3 {
 /* Agregar esto al final de tu archivo styles.css */
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-        max-width: 100%;
-    }
-
-    .nav {
-        flex-wrap: wrap;
-    }
-
-    .nav-brand {
-        margin-right: auto;
-    }
-
-    .nav-content {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        width: 100%;
-    }
 
     .hero {
         padding: 20px 0;
@@ -592,17 +571,18 @@ h3 {
     }
 }
 
-/* Agregar al final de tu archivo styles.css */
 .footer {
     background-color: #1E2329;
     padding: 40px 0;
     position: relative;
-    /* Agregamos position relative */
 }
 
 .footer .container {
     text-align: center;
-    /* Mantenemos el logo centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-logo {
@@ -612,11 +592,6 @@ h3 {
 }
 
 .footer-link {
-    position: absolute;
-    left: 100px;
-    /* Aumentamos de 20px a 100px */
-    top: 50%;
-    transform: translateY(-50%);
     color: white;
     text-decoration: none;
     font-size: 14px;
@@ -626,6 +601,19 @@ h3 {
 .footer-link:hover {
     color: var(--color-primary);
 }
+
+@media (min-width: 769px) {
+    .footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-link {
+        order: -1;
+    }
+}
+
 
 @media (max-width: 768px) {
     .hero {
@@ -889,6 +877,60 @@ h3 {
     .rider-card {
         flex: 0 0 calc(50% - 15px);
         max-width: 240px;
+    }
+}
+
+/* Estilos móviles */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--color-dark);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-light);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: all 0.3s ease;
+        padding: 80px 20px 20px;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li a {
+        font-size: 24px;
+        display: block;
+        padding: 10px 0;
     }
 }
 
