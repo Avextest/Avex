@@ -93,7 +93,7 @@ body.menu-open::before {
     }
 
     .nav-brand .logo {
-        height: 25px;
+        height: 30px;
         /* Ajustamos tamaño del logo si es necesario */
         width: auto;
         display: block;
