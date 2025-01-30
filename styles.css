@@ -97,6 +97,7 @@ body.menu-open::before {
         /* Ajustamos tamaño del logo si es necesario */
         width: auto;
         display: block;
+        padding: 5px;
     }
 
 .nav-toggle {
