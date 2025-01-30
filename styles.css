@@ -49,13 +49,13 @@ body.menu-open::before {
     background-color: var(--color-gray);
     position: fixed;
     width: 100%;
-    top: 20;
+    top: 0;
     z-index: 1000;
     border-bottom: none; /* Elimina cualquier borde */
 }
 
 .partners h2 {
-    font-size: 42px;
+    font-size: 30px;
     line-height: 1.2;
     margin-bottom: 80px;
     padding-left: 20px;
