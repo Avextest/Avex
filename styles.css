@@ -74,7 +74,7 @@ body.menu-open::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 40px;
     background-color: var(--color-gray); /* Asegura que el nav tenga el mismo color de fondo */
     margin: 0; /* Elimina cualquier margen */
 }
@@ -219,7 +219,7 @@ body.menu-open::before {
 /* Hero Section */
 .hero {
     background-color: var(--color-gray);
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .hero .container {
