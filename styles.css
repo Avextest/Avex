@@ -49,7 +49,7 @@ body.menu-open::before {
     background-color: var(--color-gray);
     position: fixed;
     width: 100%;
-    top: 50;
+    top: 20;
     z-index: 1000;
     border-bottom: none; /* Elimina cualquier borde */
 }
