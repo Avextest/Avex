@@ -50,7 +50,7 @@ body.menu-open::before {
     width: 100%;
     top: 0;
     z-index: 1000;
-    padding: 10px 0;
+    border-bottom: none; /* Elimina cualquier borde */
 }
 
 .partners h2 {
