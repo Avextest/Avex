@@ -523,7 +523,7 @@ h3 {
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 32px;
-        margin-top: 40px; /* Un poco menos de espacio en mobile */
+        margin-top: 80px; /* Un poco menos de espacio en mobile */
         line-height: 1.2;
         margin-bottom: 20px;
         font-weight: 800;
