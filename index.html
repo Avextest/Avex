@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -24,7 +25,7 @@
             <ul class="nav-menu">
                 <li><a href="#servicio">Nuestro servicio</a></li>
                 <li><a href="#nosotros">Quiénes somos</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5491123979704&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX" target="_blank" rel="noopener noreferrer">Contacto</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -32,7 +33,7 @@
         <div class="container">
             <div class="hero__left">
                 <h1>Tu Asistencia Vehicular<br>a un click de distancia.</h1>
-                <p>Seleccione el tipo de asistencia que necesita</p>
+                <p>Seleccione el que tipo de asistencia que necesita</p>
 
                 <div class="buttons">
                     <a href="https://api.whatsapp.com/send?phone=5491168294554&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX"
@@ -43,7 +44,7 @@
                         class="btn btn--outline" target="_blank" rel="noopener noreferrer">Otros incidentes</a>
                 </div>
 
-                <p class="price">Precio: $23.000</p>
+                <p class="price">Precio: $19.000 - CABA</p>
             </div>
             <div class="hero__right">
                 <div class="car-image">
@@ -56,7 +57,7 @@
     <!-- Sección de Partners/Seguros -->
     <section class="partners">
         <div class="container">
-            <h2>Quienes<br>confían en nosotros</h2>
+            <h2>Quiénes<br>confían en nosotros</h2>
             <div class="partners-grid">
                 <img src="sancor.png" alt="Sancor Seguros" class="partner-logo">
                 <img src="allianz.png" alt="Allianz" class="partner-logo">
@@ -91,79 +92,62 @@
                 </div>
             </div>
         </section>
-         <!-- Single JavaScript Section -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    // Menu Toggle Functionality
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const body = document.body;
-    const menuItems = document.querySelectorAll('.nav-menu li');
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const navToggle = document.querySelector('.nav-toggle');
+                const navMenu = document.querySelector('.nav-menu');
+                const body = document.body;
 
-    function closeMenu() {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-        menuItems.forEach((item, index) => {
-            item.style.transitionDelay = '0s';
-            item.style.opacity = '0';
-        });
-    }
-
-    navToggle.addEventListener('click', function() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        body.classList.toggle('menu-open');
-        
-        if (navMenu.classList.contains('active')) {
-            menuItems.forEach((item, index) => {
-                item.style.transitionDelay = `${0.1 * index}s`;
-                item.style.opacity = '1';
-            });
-        } else {
-            closeMenu();
-        }
-    });
-
-    // Menu Links Click Handler
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            closeMenu();
-            
-            if (link.hash) {
-                e.preventDefault();
-                const targetSection = document.querySelector(link.hash);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Función para cerrar el menú
+                function closeMenu() {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.classList.remove('menu-open');
                 }
-            }
-        });
-    });
 
-    // Car Image Animation
-    const car = document.getElementById('carImage');
-    if (car) {
-        let lastScrollPosition = window.pageYOffset;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const scrollDifference = currentScroll - lastScrollPosition;
-            const moveX = scrollDifference * 0.5;
-            const currentTransform = car.style.transform || 'translateX(0px)';
-            const currentX = parseInt(currentTransform.replace(/[^\d-]/g, '')) || 0;
-            const newX = currentX + moveX;
-            car.style.transform = `translateX(${newX}px)`;
-            lastScrollPosition = currentScroll;
-        });
-    }
+                navToggle.addEventListener('click', function () {
+                    navToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    body.classList.toggle('menu-open');
+                });
 
-    // Delay inicial para los elementos del menú
-    menuItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    });
-});
-    </script>
+                // Manejar clics en enlaces del menú
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // Cerrar el menú
+                        closeMenu();
+
+                        // Si el enlace tiene un hash (ancla)
+                        if (link.hash) {
+                            e.preventDefault();
+                            const targetSection = document.querySelector(link.hash);
+
+                            if (targetSection) {
+                                targetSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const car = document.getElementById('carImage');
+            let lastScrollPosition = window.pageYOffset;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                const scrollDifference = currentScroll - lastScrollPosition;
+                const moveX = scrollDifference * 0.5;
+                const currentTransform = car.style.transform || 'translateX(0px)';
+                const currentX = parseInt(currentTransform.replace(/[^\d-]/g, '')) || 0;
+                const newX = currentX + moveX;
+                car.style.transform = `translateX(${newX}px)`;
+                lastScrollPosition = currentScroll;
+            });
+        });
+    </script>
     </section>
 
 </html><!-- Agrega esta sección después de service-steps -->
