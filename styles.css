@@ -83,7 +83,7 @@ body.menu-open::before {
     .nav-brand {
         position: absolute;
         left: 50%;
-        top: 60%; /* Ajusta este valor para moverlo más abajo */
+        top: 70%; /* Ajusta este valor para moverlo más abajo */
         transform: translate(-50%, -50%);
         z-index: 101;
         display: flex;
