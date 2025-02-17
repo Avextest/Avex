@@ -1,4 +1,5 @@
 
+
 :root {
     --color-primary: #FFA500;
     --color-dark: #333333;
@@ -264,18 +265,6 @@ h1 {
     width: 100%;
 }
 
-}
-
-.btn::before {
-    content: '';
-    background-image: url('whatsapp-logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-}
-
 .btn--primary {
     background-color: var(--color-primary);
     color: var(--color-dark);
@@ -377,15 +366,6 @@ section {
     .steps {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-@media (max-width: 768px) {
-    .btn {
-        padding: 15px 20px;
-    }
-    
-    .btn::before {
-        width: 20px;
-        height: 20px;
     }
 
     .service-steps h2 {
