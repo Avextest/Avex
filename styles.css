@@ -239,7 +239,6 @@ h1 {
     line-height: 1.2;
 }
 
-/* Botones */
 .buttons {
     display: flex;
     flex-direction: column;
@@ -249,18 +248,29 @@ h1 {
 
 .btn {
     padding: 15px 30px;
-    border-radius: 8px;
+    border-radius: 25px;
     border: none;
     font-weight: bold;
     cursor: pointer;
     font-size: 16px;
     transition: all 0.3s ease;
     text-decoration: none;
-    text-align: center;
+    text-align: left; /* Cambiado a left */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: relative;
+}
+
+.btn::after {
+    content: '';
+    background-image: url('whatsapp-icon.png'); /* Asegúrate de tener este ícono */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    display: block;
 }
 
 .btn--primary {
@@ -269,7 +279,7 @@ h1 {
 }
 
 .btn--primary:hover {
-    color: white;
+    background-color: #e69400;
 }
 
 .btn--outline {
@@ -279,8 +289,33 @@ h1 {
 }
 
 .btn--outline:hover {
-    color: white;
     background-color: var(--color-primary);
+    color: white;
+}
+
+.price {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+
+    .btn {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 24px;
+        margin-top: 30px;
+    }
 }
 
 /* Placeholder para la imagen del auto */
