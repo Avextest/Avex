@@ -303,9 +303,12 @@ h1 {
 }
 
 .btn-icon {
-    width: 24px;
-    height: 24px;
-    margin-left: 8px;
+    width: 32px;
+    /* Aumentado de 24px a 32px */
+    height: 32px;
+    /* Aumentado de 24px a 32px */
+    margin-left: 12px;
+    /* Aumentado el margen para mejor espaciado */
 }
 
 .btn--primary,
