@@ -11,38 +11,44 @@
 <body>
     <!-- Header con Navegación -->
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <button class="nav-toggle" aria-label="Abrir menú">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="nav-brand">
-                    <img src="logo_avex.png" alt="Avex" class="logo">
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#conoce-servicio">Nuestro servicio</a></li>
-                    <li><a href="#quienes-somos">Quiénes somos</a></li>
-                    <li><a href="https://api.whatsapp.com/send?phone=5491123979704&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX"
-                            target="_blank" rel="noopener noreferrer">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="logo_avex.png" alt="Logo" class="logo">
+            </div>
+
+            <button class="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="#servicio">Nuestro servicio</a></li>
+                <li><a href="#nosotros">Quiénes somos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li class="mobile-only"><a href="tel:+5491168294554" class="nav-cta">Solicitá asistencia ahora</a></li>
+            </ul>
+        </nav>
     </header>
-    <section class="hero">
+    <section id="servicio" class="hero">
         <div class="container">
             <div class="hero__left">
                 <h1>Tu Asistencia Vehicular<br>a un click de distancia.</h1>
                 <p>Seleccione el que tipo de asistencia que necesita</p>
 
                 <div class="buttons">
-                    <a href="https://api.whatsapp.com/send?phone=5491168294554&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX"
-                        class="btn btn--primary" target="_blank" rel="noopener noreferrer">Cambio de Neumáticos</a>
-                    <a href="https://api.whatsapp.com/send?phone=5491168294554&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX"
-                        class="btn btn--primary" target="_blank" rel="noopener noreferrer">Carga de Batería</a>
-                    <a href="https://api.whatsapp.com/send?phone=5491123979704&text=%C2%A1Hola!%20Necesito%20ayuda%20de%20AVEX"
-                        class="btn btn--outline" target="_blank" rel="noopener noreferrer">Otros incidentes</a>
+                    <a href="tel:+5491168294554" class="btn btn--primary">
+                        <img src="whatsapp-icon.svg" alt="WhatsApp" class="btn-icon">
+                        Cambio de Neumáticos
+                    </a>
+                    <a href="tel:+5491168294554" class="btn btn--primary">
+                        <img src="whatsapp-icon.svg" alt="WhatsApp" class="btn-icon">
+                        Carga de Batería
+                    </a>
+                    <a href="tel:+5491123979704" class="btn btn--outline">
+                        <img src="whatsapp-icon.svg" alt="WhatsApp" class="btn-icon">
+                        Otros incidentes
+                    </a>
                 </div>
 
                 <p class="price">Precio: $19.000 - CABA</p>
@@ -94,50 +100,44 @@
             </div>
         </section>
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('DOMContentLoaded', function () {
                 const navToggle = document.querySelector('.nav-toggle');
                 const navMenu = document.querySelector('.nav-menu');
                 const body = document.body;
 
-                navToggle.addEventListener('click', () => {
+                // Función para cerrar el menú
+                function closeMenu() {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+
+                navToggle.addEventListener('click', function () {
                     navToggle.classList.toggle('active');
                     navMenu.classList.toggle('active');
                     body.classList.toggle('menu-open');
                 });
 
-                // Cerrar menú al hacer clic fuera
-                document.addEventListener('click', (e) => {
-                    if (!e.target.closest('.nav') && navMenu.classList.contains('active')) {
-                        navToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        body.classList.remove('menu-open');
-                    }
-                });
+                // Manejar clics en enlaces del menú
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // Cerrar el menú
+                        closeMenu();
 
-                // Cerrar menú al desplazarse
-                window.addEventListener('scroll', () => {
-                    if (navMenu.classList.contains('active')) {
-                        navToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        body.classList.remove('menu-open');
-                    }
+                        // Si el enlace tiene un hash (ancla)
+                        if (link.hash) {
+                            e.preventDefault();
+                            const targetSection = document.querySelector(link.hash);
+
+                            if (targetSection) {
+                                targetSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    });
                 });
             });
         </script>
     </body>
-    <!-- Todo tu contenido actual -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                navToggle.classList.toggle('active');
-            });
-        });
-    </script>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const car = document.getElementById('carImage');
@@ -158,7 +158,7 @@
     </section>
 
 </html><!-- Agrega esta sección después de service-steps -->
-<section id="quienes-somos" class="about">
+<section id="nosotros" class="about">
     <div class="container">
         <h2>
             <span class="title-line"></span>
@@ -253,7 +253,7 @@
         </div>
     </section>
 </section><!-- Agregar al final del body, antes del cierre -->
-<footer class="footer">
+<footer id="contacto" class="footer">
     <div class="container">
         <a href="https://avexargentina.com/privacy-policy" target="_blank" rel="noopener noreferrer"
             class="footer-link">Términos y condiciones</a>

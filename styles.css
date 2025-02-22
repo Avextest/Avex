@@ -5,6 +5,10 @@
     --color-gray: #F5F5F5;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -47,7 +51,6 @@ body.menu-open::before {
     top: 0;
     z-index: 1000;
     padding: 10px 0;
-    /* Agregamos padding al header también */
 }
 
 .partners h2 {
@@ -68,27 +71,38 @@ body.menu-open::before {
 /* Navigation Mobile Styles */
 @media (max-width: 768px) {
     .nav {
-        position: relative;
-        padding: 10px 0;
+        padding: 15px 20px;
+        /* Aumentamos el padding vertical */
+        align-items: center;
     }
 
     .nav-brand {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        top: 50%;
+        /* Centramos verticalmente */
+        transform: translate(-50%, -50%);
+        /* Centramos horizontal y verticalmente */
         z-index: 101;
+        display: flex;
+        align-items: center;
     }
 
     .nav-brand .logo {
-        height: 30px;
+        height: 25px;
+        /* Ajustamos tamaño del logo si es necesario */
         width: auto;
+        display: block;
     }
 
     .nav-toggle {
         display: block;
         position: relative;
         z-index: 100;
-        transition: all 0.3s ease;
+        padding: 5px;
+        /* Añadimos padding para área de toque */
+        margin: 0;
+        /* Reseteamos márgenes */
     }
 
     .nav-toggle span {
@@ -139,22 +153,27 @@ body.menu-open::before {
 }
 
 
-.nav-content {
-    margin-left: auto;
-}
-
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-brand .logo {
     height: 30px;
     width: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu {
@@ -164,6 +183,7 @@ body.menu-open::before {
     margin: 0;
     padding: 0;
     align-items: center;
+    height: 100%;
 }
 
 .nav-menu a {
@@ -172,6 +192,9 @@ body.menu-open::before {
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu a:hover {
@@ -180,6 +203,11 @@ body.menu-open::before {
 
 .nav-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
 }
 
 /* Hero Section */
@@ -234,6 +262,29 @@ h1 {
     width: 100%;
 }
 
+.btn-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.btn--primary,
+.btn--outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 24px;
+}
+
+.btn--primary img,
+.btn--outline img {
+    filter: brightness(0) invert(0);
+}
+
+.btn--primary:hover img {
+    filter: brightness(0) invert(1);
+}
+
 .btn--primary {
     background-color: var(--color-primary);
     color: var(--color-dark);
@@ -263,6 +314,12 @@ h1 {
 }
 
 /* Service Steps Section */
+
+section {
+    scroll-margin-top: 80px;
+    /* Ajusta este valor según la altura de tu header */
+}
+
 .service-steps {
     padding: 80px 0;
     background-color: #f5f5f5;
@@ -527,30 +584,6 @@ h3 {
 /* Agregar esto al final de tu archivo styles.css */
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-        max-width: 100%;
-    }
-
-    .nav {
-        flex-wrap: wrap;
-    }
-
-    .nav-brand {
-        margin-right: auto;
-    }
-
-    .nav-content {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        width: 100%;
-    }
 
     .hero {
         padding: 20px 0;
@@ -592,17 +625,18 @@ h3 {
     }
 }
 
-/* Agregar al final de tu archivo styles.css */
 .footer {
     background-color: #1E2329;
     padding: 40px 0;
     position: relative;
-    /* Agregamos position relative */
 }
 
 .footer .container {
     text-align: center;
-    /* Mantenemos el logo centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-logo {
@@ -612,11 +646,6 @@ h3 {
 }
 
 .footer-link {
-    position: absolute;
-    left: 100px;
-    /* Aumentamos de 20px a 100px */
-    top: 50%;
-    transform: translateY(-50%);
     color: white;
     text-decoration: none;
     font-size: 14px;
@@ -626,6 +655,19 @@ h3 {
 .footer-link:hover {
     color: var(--color-primary);
 }
+
+@media (min-width: 769px) {
+    .footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-link {
+        order: -1;
+    }
+}
+
 
 @media (max-width: 768px) {
     .hero {
@@ -889,6 +931,80 @@ h3 {
     .rider-card {
         flex: 0 0 calc(50% - 15px);
         max-width: 240px;
+    }
+}
+
+.nav-cta {
+    background-color: var(--color-primary);
+    color: var(--color-dark) !important;
+    padding: 12px 24px !important;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.nav-cta:hover {
+    background-color: #e69400;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* Estilos móviles */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--color-dark);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-light);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: all 0.3s ease;
+        padding: 80px 20px 20px;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li a {
+        font-size: 24px;
+        display: block;
+        padding: 10px 0;
+    }
+
+    .nav-menu a {
+        cursor: pointer;
     }
 }
 
