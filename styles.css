@@ -1,8 +1,14 @@
+
+
 :root {
     --color-primary: #FFA500;
     --color-dark: #333333;
     --color-light: #FFFFFF;
     --color-gray: #F5F5F5;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 html {
@@ -19,6 +25,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     padding-top: 60px;
+    background-color: #F5F5F5;
     /* Espacio para el menú fijo */
 }
 
@@ -54,7 +61,7 @@ body.menu-open::before {
 }
 
 .partners h2 {
-    font-size: 42px;
+    font-size: 37px;
     line-height: 1.2;
     margin-bottom: 80px;
     padding-left: 20px;
@@ -63,7 +70,7 @@ body.menu-open::before {
 
 @media (max-width: 768px) {
     .partners h2 {
-        font-size: 32px;
+        font-size: 26px;
         margin-bottom: 40px;
     }
 }
@@ -71,6 +78,9 @@ body.menu-open::before {
 /* Navigation Mobile Styles */
 @media (max-width: 768px) {
     .nav {
+        padding: 15px 20px;
+        /* Aumentamos el padding vertical */
+        align-items: center;
         padding: 15px 20px;
         /* Aumentamos el padding vertical */
         align-items: center;
@@ -83,7 +93,13 @@ body.menu-open::before {
         /* Centramos verticalmente */
         transform: translate(-50%, -50%);
         /* Centramos horizontal y verticalmente */
+        top: 50%;
+        /* Centramos verticalmente */
+        transform: translate(-50%, -50%);
+        /* Centramos horizontal y verticalmente */
         z-index: 101;
+        display: flex;
+        align-items: center;
         display: flex;
         align-items: center;
     }
@@ -91,7 +107,10 @@ body.menu-open::before {
     .nav-brand .logo {
         height: 25px;
         /* Ajustamos tamaño del logo si es necesario */
+        height: 25px;
+        /* Ajustamos tamaño del logo si es necesario */
         width: auto;
+        display: block;
         display: block;
     }
 
@@ -99,6 +118,10 @@ body.menu-open::before {
         display: block;
         position: relative;
         z-index: 100;
+        padding: 5px;
+        /* Añadimos padding para área de toque */
+        margin: 0;
+        /* Reseteamos márgenes */
         padding: 5px;
         /* Añadimos padding para área de toque */
         margin: 0;
@@ -158,8 +181,16 @@ body.menu-open::before {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    padding: 10px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
     position: relative;
 }
 
@@ -174,6 +205,8 @@ body.menu-open::before {
     width: auto;
     margin: 0;
     padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu {
@@ -183,6 +216,7 @@ body.menu-open::before {
     margin: 0;
     padding: 0;
     align-items: center;
+    height: 100%;
     height: 100%;
 }
 
@@ -195,6 +229,9 @@ body.menu-open::before {
     display: flex;
     align-items: center;
     height: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu a:hover {
@@ -203,6 +240,11 @@ body.menu-open::before {
 
 .nav-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
     background: none;
     border: none;
     cursor: pointer;
@@ -314,6 +356,12 @@ h1 {
 }
 
 /* Service Steps Section */
+
+section {
+    scroll-margin-top: 80px;
+    /* Ajusta este valor según la altura de tu header */
+}
+
 
 section {
     scroll-margin-top: 80px;
@@ -637,6 +685,10 @@ h3 {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-logo {
@@ -669,12 +721,23 @@ h3 {
 }
 
 
+@media (min-width: 769px) {
+    .footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-link {
+        order: -1;
+    }
+}
+
+
 @media (max-width: 768px) {
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding: 40px 20px;
+   .hero {
+        min-height: auto; /* Cambiamos de 100vh a auto */
+        padding: 40px 20px 20px; /* Reducimos el padding bottom */
         text-align: center;
         background-color: #f5f5f5;
     }

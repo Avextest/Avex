@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,10 +32,11 @@
         </nav>
     </header>
     <section id="servicio" class="hero">
+    <section id="servicio" class="hero">
         <div class="container">
             <div class="hero__left">
                 <h1>Tu Asistencia Vehicular<br>a un click de distancia.</h1>
-                <p>Seleccione el que tipo de asistencia que necesita</p>
+                <p>Seleccione el tipo de asistencia que necesita</p>
 
                 <div class="buttons">
                     <a href="tel:+5491168294554" class="btn btn--primary">
@@ -51,7 +53,7 @@
                     </a>
                 </div>
 
-                <p class="price">Precio: $19.000 - CABA</p>
+                <p class="price">Precio: $23.000</p>
             </div>
             <div class="hero__right">
                 <div class="car-image">
@@ -64,7 +66,7 @@
     <!-- Sección de Partners/Seguros -->
     <section class="partners">
         <div class="container">
-            <h2>Quiénes<br>confían en nosotros</h2>
+            <h2>Quienes<br>confían en nosotros</h2>
             <div class="partners-grid">
                 <img src="sancor.png" alt="Sancor Seguros" class="partner-logo">
                 <img src="allianz.png" alt="Allianz" class="partner-logo">
@@ -101,10 +103,19 @@
         </section>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function () {
                 const navToggle = document.querySelector('.nav-toggle');
                 const navMenu = document.querySelector('.nav-menu');
                 const body = document.body;
 
+                // Función para cerrar el menú
+                function closeMenu() {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+
+                navToggle.addEventListener('click', function () {
                 // Función para cerrar el menú
                 function closeMenu() {
                     navToggle.classList.remove('active');
@@ -118,6 +129,22 @@
                     body.classList.toggle('menu-open');
                 });
 
+                // Manejar clics en enlaces del menú
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // Cerrar el menú
+                        closeMenu();
+
+                        // Si el enlace tiene un hash (ancla)
+                        if (link.hash) {
+                            e.preventDefault();
+                            const targetSection = document.querySelector(link.hash);
+
+                            if (targetSection) {
+                                targetSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    });
                 // Manejar clics en enlaces del menú
                 document.querySelectorAll('.nav-menu a').forEach(link => {
                     link.addEventListener('click', (e) => {
@@ -158,6 +185,7 @@
     </section>
 
 </html><!-- Agrega esta sección después de service-steps -->
+<section id="nosotros" class="about">
 <section id="nosotros" class="about">
     <div class="container">
         <h2>
@@ -253,6 +281,7 @@
         </div>
     </section>
 </section><!-- Agregar al final del body, antes del cierre -->
+<footer id="contacto" class="footer">
 <footer id="contacto" class="footer">
     <div class="container">
         <a href="https://avexargentina.com/privacy-policy" target="_blank" rel="noopener noreferrer"
