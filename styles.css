@@ -305,6 +305,7 @@ h1 {
 .btn-icon {
     width: 24px;
     height: 24px;
+    margin-left: 8px;
 }
 
 .btn--primary,
@@ -316,14 +317,16 @@ h1 {
     padding: 15px 24px;
 }
 
-.btn--primary img,
-.btn--outline img {
-    filter: brightness(0) invert(0);
+.btn--primary .btn-icon {
+    filter: none;
+    /* Aseguramos que no haya filtros */
 }
 
-.btn--primary:hover img {
-    filter: brightness(0) invert(1);
+.btn--outline .btn-icon {
+    filter: none;
+    /* Aseguramos que no haya filtros */
 }
+
 
 .btn--primary {
     background-color: var(--color-primary);
