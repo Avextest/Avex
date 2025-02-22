@@ -1021,19 +1021,6 @@ h3 {
         /* Esto ya está bien */
     }
 
-    .nav-cta {
-        display: inline-block !important;
-        /* Forzamos la visualización */
-        width: auto;
-        margin-top: 20px;
-        padding: 12px 24px;
-        background-color: var(--color-primary);
-        color: var(--color-dark) !important;
-        border-radius: 8px;
-        font-size: 16px !important;
-        /* Ajustamos el tamaño de fuente */
-    }
-    
 
     .nav-toggle {
         display: block;
