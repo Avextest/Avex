@@ -90,14 +90,14 @@ body.menu-open::before {
         width: 16px; /* Hacemos el ícono más pequeño */
         height: 16px;
         font-size: 12px;
+        min-width: 16px;
     }
     
-    .info-text {
-        font-size: 12px; /* Reducimos el tamaño de la fuente */
-        line-height: 1; /* Reducimos el alto de línea */
+.info-text {
+        font-size: 12px;
+        line-height: 1.2;
+        white-space: nowrap; /* Mantiene el texto en una línea */
     }
-}
-}
 
 .info-icon {
     background-color: #FFA500;
