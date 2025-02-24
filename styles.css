@@ -75,14 +75,6 @@ body.menu-open::before {
     width: fit-content;
     margin: 0 auto;
     white-space: nowrap; /* Evita el salto de línea */
-}
-
-@media (max-width: 768px) {
-    .info-popup {
-        top: 60px;
-        padding: 4px 12px;
-        max-width: 90%;
-        gap: 5px;
     }
     
     .info-icon {
